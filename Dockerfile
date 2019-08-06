@@ -29,3 +29,8 @@ RUN mv jdk1.8.0_144 /usr/java
 RUN rm jdk-8u144-linux-x64.tar.gz
 RUN update-alternatives --install /usr/bin/java java /usr/java/bin/java 2000
 RUN update-alternatives --install /usr/bin/javac javac /usr/java/bin/javac 2000
+
+RUN wget -q https://s3.amazonaws.com/agr-build-files/infinispan-server-9.4.15.Final.zip
+RUN unzip -q infinispan-server-9.4.15.Final.zip
+RUN rm infinispan-server-9.4.15.Final.zip
+RUN mv infinispan-server-9.4.15.Final /opt/infinispan
