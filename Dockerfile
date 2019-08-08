@@ -34,3 +34,4 @@ RUN wget -q https://s3.amazonaws.com/agr-build-files/infinispan-server-9.4.15.Fi
 RUN unzip -q infinispan-server-9.4.15.Final.zip
 RUN rm infinispan-server-9.4.15.Final.zip
 RUN mv infinispan-server-9.4.15.Final /opt/infinispan
+COPY standalone.conf /opt/infinispan/bin
