@@ -9,7 +9,7 @@ RUN apt-get -qq install -y apt-utils
 RUN apt-get -qq upgrade -y
 RUN apt-get -qq dist-upgrade -y
 
-RUN apt-get -qq install -y make vim vim-common vim-runtime git wget unzip locales nodejs npm python3.7 python3-pip maven
+RUN apt-get -qq install -y make vim vim-common vim-runtime git wget unzip locales nodejs npm python3.7 python3-pip maven ansible curl python-pip
 
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
@@ -23,10 +23,10 @@ RUN n stable
 RUN wget -q http://build.berkeleybop.org/userContent/owltools/owltools -O /usr/local/bin/owltools
 RUN chmod +x /usr/local/bin/owltools
 
-RUN wget -q https://s3.amazonaws.com/agr-build-files/jdk-8u144-linux-x64.tar.gz
-RUN tar zxf jdk-8u144-linux-x64.tar.gz
-RUN mv jdk1.8.0_144 /usr/java
-RUN rm jdk-8u144-linux-x64.tar.gz
+RUN wget -q https://s3.amazonaws.com/agr-build-files/jdk-11.0.5_linux-x64_bin.tar.gz
+RUN tar zxvf jdk-11.0.5_linux-x64_bin.tar.gz 
+RUN mv jdk-11.0.5 /usr/java
+RUN rm jdk-11.0.5_linux-x64_bin.tar.gz
 RUN update-alternatives --install /usr/bin/java java /usr/java/bin/java 2000
 RUN update-alternatives --install /usr/bin/javac javac /usr/java/bin/javac 2000
 
