@@ -23,10 +23,10 @@ RUN n stable
 RUN wget -q http://build.berkeleybop.org/userContent/owltools/owltools -O /usr/local/bin/owltools
 RUN chmod +x /usr/local/bin/owltools
 
-RUN wget -q https://s3.amazonaws.com/agr-build-files/jdk-11.0.5_linux-x64_bin.tar.gz
-RUN tar zxvf jdk-11.0.5_linux-x64_bin.tar.gz 
-RUN mv jdk-11.0.5 /usr/java
-RUN rm jdk-11.0.5_linux-x64_bin.tar.gz
+RUN wget -q https://s3.amazonaws.com/agr-build-files/jdk-14_linux-x64_bin.tar.gz
+RUN tar zxvf jdk-14_linux-x64_bin.tar.gz
+RUN mv jdk-14 /usr/java
+RUN rm jdk-14_linux-x64_bin.tar.gz
 RUN update-alternatives --install /usr/bin/java java /usr/java/bin/java 2000
 RUN update-alternatives --install /usr/bin/javac javac /usr/java/bin/javac 2000
 
