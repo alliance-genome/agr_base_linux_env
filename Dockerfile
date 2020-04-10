@@ -20,7 +20,7 @@ RUN npm cache clean -f
 RUN npm install -g n
 RUN n stable
 
-RUN wget -q http://build.berkeleybop.org/userContent/owltools/owltools -O /usr/local/bin/owltools
+RUN wget -q https://github.com/owlcollab/owltools/releases/download/2020-04-06/owltools -O /usr/local/bin/owltools
 RUN chmod +x /usr/local/bin/owltools
 
 RUN wget -q https://s3.amazonaws.com/agr-build-files/jdk-14_linux-x64_bin.tar.gz
