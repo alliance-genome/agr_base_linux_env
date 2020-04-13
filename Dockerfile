@@ -9,7 +9,7 @@ RUN apt-get -qq install -y apt-utils
 RUN apt-get -qq upgrade -y
 RUN apt-get -qq dist-upgrade -y
 
-RUN apt-get -qq install -y make vim vim-common vim-runtime git wget unzip locales nodejs npm python3.7 python3-pip maven ansible curl python-pip
+RUN apt-get -qq install -y make vim vim-common vim-runtime git wget unzip locales nodejs npm python3.7 python3-pip maven ansible curl python-pip tabix
 
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
