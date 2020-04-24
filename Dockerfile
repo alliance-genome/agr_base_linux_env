@@ -9,7 +9,7 @@ RUN apt-get -qq install -y apt-utils
 RUN apt-get -qq upgrade -y
 RUN apt-get -qq dist-upgrade -y
 
-RUN apt-get -qq install -y --no-install-recommends make vim vim-common vim-runtime git wget unzip locales nodejs npm python3.7 python3-pip maven ansible curl python-pip tabix
+RUN apt-get -qq install -y --no-install-recommends make vim vim-common vim-runtime ssh git wget unzip locales nodejs npm python3.7 python3-pip maven ansible curl python-pip tabix
 
 RUN pip install boto
 RUN pip3 install setuptools
