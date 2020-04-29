@@ -9,7 +9,7 @@ RUN apt-get update && apt-get -qq install -y apt-utils && apt-get -qq upgrade -y
 RUN apt-get -qq install -y --no-install-recommends make vim vim-common vim-runtime ssh git wget unzip locales nodejs npm python3.7 python3-pip maven ansible curl python-pip tabix
 
 RUN pip install boto
-RUN pip3 install setuptools
+RUN pip3 install setuptools wheel
 
 RUN ansible-galaxy install akirak.coreos-python
 
