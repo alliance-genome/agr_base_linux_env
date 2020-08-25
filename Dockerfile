@@ -11,7 +11,7 @@ RUN apt-get -qq install -y --no-install-recommends make vim vim-common vim-runti
 RUN pip install boto
 RUN pip3 install setuptools wheel
 
-RUN ansible-galaxy install instrumentisto.coreos-bootstrap
+RUN ansible-galaxy install git+https://github.com/instrumentisto/ansible-coreos-bootstrap
 
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
