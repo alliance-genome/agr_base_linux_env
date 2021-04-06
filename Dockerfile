@@ -8,7 +8,7 @@ RUN apt-get update && apt-get -qq install -y apt-utils && apt-get -qq upgrade -y
 
 RUN apt-get -qq install -y --no-install-recommends make vim vim-common vim-runtime ssh git wget unzip locales nodejs python3.7 python3-pip maven ansible curl tabix vcftools awscli gcc python3-dev jq
 
-RUN pip3 install boto
+RUN pip3 install boto3
 
 RUN wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 
