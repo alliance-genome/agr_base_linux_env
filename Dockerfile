@@ -1,4 +1,4 @@
-FROM ubuntu:focal
+FROM ubuntu:lunar
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -6,7 +6,7 @@ WORKDIR /workdir
 
 RUN apt-get update && apt-get -qq install -y apt-utils && apt-get -qq upgrade -y && apt-get -qq dist-upgrade -y
 
-RUN apt-get -qq install -y --no-install-recommends make vim vim-common vim-runtime ssh git wget unzip locales nodejs python3.7 python3-pip maven ansible curl tabix vcftools awscli gcc python3-dev jq leiningen
+RUN apt-get -qq install -y --no-install-recommends make vim vim-common vim-runtime ssh git wget unzip locales nodejs python3.11 python3-pip maven ansible curl tabix vcftools awscli gcc python3-dev jq leiningen
 
 RUN pip3 install boto3 boto
 RUN pip3 install --upgrade awscli
