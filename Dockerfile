@@ -24,5 +24,9 @@ RUN wget -q https://s3.amazonaws.com/agr-build-files/jdk-17.0.5_linux-x64_bin.ta
 RUN update-alternatives --install /usr/bin/java java /usr/java/bin/java 2000
 RUN update-alternatives --install /usr/bin/javac javac /usr/java/bin/javac 2000
 
+RUN wget -q https://s3.amazonaws.com/agr-build-files/Miniconda3-py310_22.11.1-1-Linux-x86_64.sh && bash Miniconda3-py310_22.11.1-1-Linux-x86_64.sh -b && rm Miniconda3-py310_22.11.1-1-Linux-x86_64.sh
+
+ENV PATH="${PATH}:/root/miniconda3/bin"
+
 #RUN wget -q https://s3.amazonaws.com/agr-build-files/infinispan-server-11.0.0.Dev04.zip && unzip -q infinispan-server-11.0.0.Dev04.zip && rm infinispan-server-11.0.0.Dev04.zip && mv infinispan-server-11.0.0.Dev04 /opt/infinispan
 #COPY standalone.conf /opt/infinispan/bin
