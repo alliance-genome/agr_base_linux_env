@@ -1,4 +1,4 @@
-FROM ubuntu:focal
+FROM ubuntu:lunar
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -6,7 +6,7 @@ WORKDIR /workdir
 
 RUN apt-get update && apt-get -qq install -y apt-utils && apt-get -qq upgrade -y && apt-get -qq dist-upgrade -y
 
-RUN apt-get -qq install -y --no-install-recommends make vim vim-common vim-runtime ssh git wget unzip locales nodejs python3.7 python3-pip maven ansible curl tabix vcftools awscli gcc python3-dev jq leiningen
+RUN apt-get -qq install -y --no-install-recommends make vim vim-common vim-runtime ssh git wget unzip locales nodejs python3.11 python3-pip maven ansible curl tabix vcftools awscli gcc python3-dev jq leiningen
 
 RUN pip3 install boto3 boto
 RUN pip3 install --upgrade awscli
@@ -23,6 +23,10 @@ RUN wget -q https://s3.amazonaws.com/agr-build-files/jdk-17.0.5_linux-x64_bin.ta
 
 RUN update-alternatives --install /usr/bin/java java /usr/java/bin/java 2000
 RUN update-alternatives --install /usr/bin/javac javac /usr/java/bin/javac 2000
+
+RUN wget -q https://s3.amazonaws.com/agr-build-files/Miniconda3-py310_22.11.1-1-Linux-x86_64.sh && bash Miniconda3-py310_22.11.1-1-Linux-x86_64.sh -b && rm Miniconda3-py310_22.11.1-1-Linux-x86_64.sh
+
+ENV PATH="${PATH}:/root/miniconda3/bin"
 
 #RUN wget -q https://s3.amazonaws.com/agr-build-files/infinispan-server-11.0.0.Dev04.zip && unzip -q infinispan-server-11.0.0.Dev04.zip && rm infinispan-server-11.0.0.Dev04.zip && mv infinispan-server-11.0.0.Dev04 /opt/infinispan
 #COPY standalone.conf /opt/infinispan/bin
