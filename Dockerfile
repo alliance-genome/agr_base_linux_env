@@ -6,7 +6,7 @@ WORKDIR /workdir
 
 RUN apt-get update && apt-get -qq install -y apt-utils && apt-get -qq upgrade -y && apt-get -qq dist-upgrade -y
 
-RUN apt-get -qq install -y --no-install-recommends make vim vim-common vim-runtime ssh git wget unzip locales nodejs python3.11 python3-pip python3-boto3 maven ansible curl tabix vcftools awscli gcc python3-dev jq leiningen
+RUN apt-get -qq install -y --no-install-recommends make vim vim-common vim-runtime ssh git wget unzip locales nodejs python3.11-full python3-boto3 maven ansible curl tabix vcftools awscli gcc jq leiningen
 
 RUN wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 
