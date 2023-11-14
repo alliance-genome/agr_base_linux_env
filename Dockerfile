@@ -23,5 +23,5 @@ ENV PATH="${PATH}:/root/miniconda3/bin"
 
 # Setup virtual env
 RUN python3.11 -m venv /root/venv
-RUN . /root/eb_venv/bin/activate
+RUN . /root/venv/bin/activate
 RUN pip install awsebcli
