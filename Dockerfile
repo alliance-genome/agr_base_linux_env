@@ -20,3 +20,8 @@ RUN update-alternatives --install /usr/bin/javac javac /usr/java/bin/javac 2000
 RUN wget -q https://s3.amazonaws.com/agr-build-files/Miniconda3-py310_22.11.1-1-Linux-x86_64.sh && bash Miniconda3-py310_22.11.1-1-Linux-x86_64.sh -b && rm Miniconda3-py310_22.11.1-1-Linux-x86_64.sh
 
 ENV PATH="${PATH}:/root/miniconda3/bin"
+
+# Setup virtual env
+RUN python3.11 -m venv /root/venv
+RUN . /root/eb_venv/bin/activate
+RUN pip install awsebcli
