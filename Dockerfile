@@ -6,9 +6,7 @@ WORKDIR /workdir
 
 RUN apt-get update && apt-get -qq install -y apt-utils && apt-get -qq upgrade -y && apt-get -qq dist-upgrade -y
 
-RUN apt-get -qq install -y --no-install-recommends make vim vim-common vim-runtime ssh git wget unzip locales nodejs python3.12 python3.12-venv python3-pip python3-boto python3-boto3 maven ansible curl tabix vcftools gcc python3-dev jq leiningen
-
-RUN pip install --upgrade pip setuptools
+RUN apt-get -qq install -y --no-install-recommends make vim vim-common vim-runtime ssh git wget unzip locales python3-setuptools nodejs python3.12 python3.12-venv python3-pip python3-boto python3-boto3 maven ansible curl tabix vcftools gcc python3-dev jq leiningen
 
 # The use of "break system packages" is OK in this case.
 RUN pip3 install awscli --break-system-packages 
