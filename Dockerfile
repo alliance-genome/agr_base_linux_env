@@ -6,12 +6,31 @@ WORKDIR /workdir
 
 RUN apt-get update && apt-get -qq install -y apt-utils && apt-get -qq upgrade -y && apt-get -qq dist-upgrade -y
 
-RUN apt-get -qq install -y --no-install-recommends make vim vim-common vim-runtime ssh git wget unzip locales nodejs python3.7 python3-pip python3-boto python3-boto3 maven ansible curl tabix vcftools gcc python3-dev jq leiningen
+RUN apt-get -qq install -y --no-install-recommends make vim vim-common vim-runtime ssh git wget unzip locales nodejs python3.12 python3.12-venv python3-pip python3-boto python3-boto3 maven ansible curl tabix vcftools gcc python3-dev jq leiningen
 
 # The use of "break system packages" is OK in this case.
 RUN pip3 install awscli --break-system-packages 
-# Print the version of the AWS CLI to verify it was installed correctly.
-RUN aws --version 
+
+# Create the virtual environment
+RUN python3 -m venv /root/venv
+
+# Upgrade pip and install Python packages within the virtual environment
+RUN /root/venv/bin/pip install --upgrade pip && \
+    /root/venv/bin/pip install awscli boto3 boto
+
+# Install Dependencies for Conda Installation
+RUN apt-get update && \
+    apt-get install -y wget bzip2 ca-certificates curl && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install Miniconda
+RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/miniconda.sh && \
+    bash /tmp/miniconda.sh -b -p /opt/conda && \
+    rm /tmp/miniconda.sh
+
+# Update PATH Environment Variable
+ENV PATH="/opt/conda/bin:$PATH"
 
 RUN wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 
