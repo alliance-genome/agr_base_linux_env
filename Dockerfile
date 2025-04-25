@@ -8,7 +8,7 @@ RUN apt-get update \
 	&& apt-get -qq install -y apt-utils \
 	&& apt-get -qq upgrade -y \
 	&& apt-get -qq dist-upgrade -y \
-	&& apt-get -qq install -y --no-install-recommends make vim vim-common vim-runtime ssh git wget unzip locales python3-setuptools python3.12 python3-venv python3-pip maven ansible curl tabix vcftools gcc python3-dev jq leiningen \
+	&& apt-get -qq install -y --no-install-recommends make vim vim-common vim-runtime ssh git wget unzip locales python3-setuptools python3.12 python3-venv python3-pip maven ansible curl tabix vcftools gcc python3-dev jq leiningen python3-boto3 python3-botocore \
 	&& apt-get autoremove -y \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
