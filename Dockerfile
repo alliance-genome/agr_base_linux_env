@@ -42,4 +42,4 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86
 ENV PATH="/opt/conda/bin:$PATH"
 
 # Setup virtual env
-RUN python3.12 -m venv /root/venv && . /root/venv/bin/activate && pip install awsebcli
+RUN python3.12 -m venv /root/venv && . /root/venv/bin/activate && pip install awsebcli boto3 boto
